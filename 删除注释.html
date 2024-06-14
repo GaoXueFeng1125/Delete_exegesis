@@ -1,0 +1,31 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>删除"//"类型注释</title>  
+<script>  
+function removeComments() {  
+    // 获取textarea中的文本  
+    var text = document.getElementById('inputText').value;  
+    // 使用正则表达式匹配"//"及其后面的所有内容，并将其替换为空字符串  
+    // 只匹配"//"之后的内容，直到行尾  
+    var cleanedText = text.replace(/\/\/.*$/gm, '');  
+    // 将处理后的文本更新回textarea  
+    document.getElementById('inputText').value = cleanedText;  
+}  
+</script>  
+</head>  
+<body>  
+  
+<h1>删除"//"类型注释</h1>  
+  
+<textarea id="inputText" rows="10" cols="50">  
+This is a line with // an inline comment  
+Another line // with a comment at the end  
+No comment here  
+Line with // multiple // comments // inline  
+</textarea>  
+<button onclick="removeComments()">删除</button>  
+</body>  
+</html>
